@@ -23,7 +23,7 @@ if ($result == false) {
 }
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if($row) {
-    header('Location: focus-premium-fixed/focus-premium/themes/index1.html');
+    header('Location: focus-premium-fixed/focus-premium/themes/index1.php');
     exit;
 
 }

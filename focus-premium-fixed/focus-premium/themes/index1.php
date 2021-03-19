@@ -1,3 +1,17 @@
+<?php
+$dbhostname="localhost";
+$dbusername="yassine";
+$dbpassword="123";
+$dbname="test";
+
+$con = mysqli_connect($dbhostname, $dbusername, $dbpassword, $dbname);
+
+if (!$con){
+echo('Not Connected');
+die(print_r(mysqli_error($con)));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +55,9 @@
                             <!-- <img src="assets/images/logo.png" alt="" /> --><span>Focus</span></a></div>
                     <li class="label">Main</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span
-                                class="badge badge-primary">2</span> <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="index.html">Dashboard 1</a></li>
-                            <li><a href="index1.html">Dashboard 2</a></li>
+                            <li><a href="index1.php">Dashboard </a></li>
                         </ul>
                     </li>
 
@@ -382,319 +394,96 @@
                     </div>
                     <!-- /# column -->
                 </div>
+                <?php
+                $reqselect = "select * from members";
+                $resultat = mysqli_query($con,$reqselect);
+
+                ?>
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Total Profit</div>
-                                        <div class="stat-digit">1,012</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card">
-                                <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">New Customer</div>
-                                        <div class="stat-digit">961</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Active Projects</div>
-                                        <div class="stat-digit">770</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Referral</div>
-                                        <div class="stat-digit">2,781</div>
+                                        <div class="stat-text">Total Members</div>
+                                        <div class="stat-digit">
+                                            <?php
+                                                $nbr=mysqli_num_rows($resultat);
+                                                echo $nbr
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-lg-8">
-                            <div class="card">
-                                <div class="card-title">
-                                    <h4>Fee Collections and Expenses</h4>
 
-                                </div>
-                                <div class="card-body">
-                                    <div class="ct-bar-chart m-t-30"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="card">
-
-                                <div class="card-body">
-                                    <div class="ct-pie-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="card bg-primary">
-                                        <div class="weather-widget">
-                                            <div id="weather-one" class="weather-one p-22"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="testimonial-widget-one p-17">
-                                            <div class="testimonial-widget-one owl-carousel owl-theme">
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                         <!-- /# column -->
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-title pr">
-                                    <h4>All Exam Result</h4>
-
+                                    <h4>Members</h4>
                                 </div>
-                                <div class="card-body">
+
+
                                     <div class="table-responsive">
                                         <table class="table student-data-table m-t-20">
                                             <thead>
                                                 <tr>
-                                                    <th><label><input type="checkbox" value=""></label>Exam Name</th>
-                                                    <th>Subject</th>
-                                                    <th>Grade Point</th>
-                                                    <th>Percent Form</th>
-                                                    <th>Percent Upto</th>
-                                                    <th>Date</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name </th>
+                                                    <th>Email</th>
+                                                    <th>Facebook URL</th>
+                                                    <th>Class</th>
+                                                    <th>Skills</th>
+                                                    <th>Expectations</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>Mathmatics</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>Mathmatics</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>English</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>Bangla</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>Mathmatics</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>English</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Class Test</td>
-                                                    <td>Mathmatics</td>
-                                                    <td>
-                                                        4.00
-                                                    </td>
-                                                    <td>
-                                                        95.00
-                                                    </td>
-                                                    <td>
-                                                        100
-                                                    </td>
-                                                    <td>20/04/2017</td>
-                                                </tr>
+                                            <?php
+                                                    while ($ligne=mysqli_fetch_assoc($resultat))
+                                                    {
+                                                        ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $ligne['firstname'] ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $ligne['lastname'] ?>
+                                                            </td>
+                                                            <td>
+                                                            <?php echo $ligne['email'] ?>
+
+                                                            </td>
+                                                            <td>
+                                                            <?php echo $ligne['facebook'] ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $ligne['skills'] ?>
+
+                                                            </td>
+                                                            <td>
+                                                            <?php echo $ligne['class'] ?>
+
+
+                                                            </td>
+                                                            <td>
+                                                            <?php echo $ligne['expectations'] ?>
+                                                            </td>
+                                                        </tr>
+
+                                                        <?php
+                                                    }
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+
                             </div>
                         </div>
                         <!-- /# column -->
@@ -985,114 +774,6 @@
                                 <div class="card-title pr">
                                     <h4>All Expense</h4>
 
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table student-data-table m-t-20">
-                                            <thead>
-                                                <tr>
-                                                    <th><label><input type="checkbox" value=""></label>ID</th>
-                                                    <th>Expense Type</th>
-                                                    <th>Amount</th>
-                                                    <th>Status</th>
-                                                    <th>Email</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><label><input type="checkbox" value=""></label>#2901</td>
-                                                    <td>
-                                                        Salary
-                                                    </td>
-                                                    <td>
-                                                        $2000
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-primary">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        edumin@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        10/05/2017
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label><input type="checkbox" value=""></label>#2901</td>
-                                                    <td>
-                                                        Salary
-                                                    </td>
-                                                    <td>
-                                                        $2000
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-warning">Pending</span>
-                                                    </td>
-                                                    <td>
-                                                        edumin@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        10/05/2017
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label><input type="checkbox" value=""></label>#2901</td>
-                                                    <td>
-                                                        Salary
-                                                    </td>
-                                                    <td>
-                                                        $2000
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-primary">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        edumin@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        10/05/2017
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label><input type="checkbox" value=""></label>#2901</td>
-                                                    <td>
-                                                        Salary
-                                                    </td>
-                                                    <td>
-                                                        $2000
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-danger">Due</span>
-                                                    </td>
-                                                    <td>
-                                                        edumin@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        10/05/2017
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label><input type="checkbox" value=""></label>#2901</td>
-                                                    <td>
-                                                        Salary
-                                                    </td>
-                                                    <td>
-                                                        $2000
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-primary">Paid</span>
-                                                    </td>
-                                                    <td>
-                                                        edumin@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        10/05/2017
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>

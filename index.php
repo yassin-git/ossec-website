@@ -326,12 +326,15 @@ if(isset($_POST)) {
                             </div>
                         <input class="btn-solid-reg page-scroll"  type="submit" value="login">
 
+                    </form>
 
-                        </form>
-                    </div>
                 </div>
+
             </div>
+
         </div>
+
+    </div>
 
 
 
