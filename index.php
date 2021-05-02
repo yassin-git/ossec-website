@@ -261,6 +261,7 @@ if(isset($_POST)) {
                                         <option value="" disabled selected>class</option>
                                         <option value="ii1">II1</option>
                                         <option value="ii2">II2</option>
+                                        <option value="ii3">II3</option>
                                         <option value="other">Other</option>
                                     </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>

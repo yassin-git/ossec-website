@@ -11,15 +11,11 @@ echo('Not Connected');
 die(print_r(mysqli_error($con)));
 }
 
-$reqselect ="SELECT * FROM members";
+$reqselect ="SELECT * FROM activities";
 $resultat =$con->query($reqselect);
 
 ?>
 
-
-
-
-   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,8 +55,7 @@ $resultat =$con->query($reqselect);
 
 <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -71,22 +66,12 @@ $resultat =$con->query($reqselect);
                 </div>
             </form>
             <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        
-                        <a class="dropdown-item" href="page-registrer.html">Register</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="page-login.html">Login</a>
-                    </div>
-                </li>
-            </ul>
+            
         </nav>
-
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        
+          
+          
+            <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -104,8 +89,6 @@ $resultat =$con->query($reqselect);
             </div>
         </div>
     </div>
-    <!-- /# sidebar -->
-
     <div class="header">
         <div class="container-fluid">
             <div class="row">
@@ -120,8 +103,6 @@ $resultat =$con->query($reqselect);
             </div>
         </div>
     </div>
-
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -139,33 +120,22 @@ $resultat =$con->query($reqselect);
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Home</li>
+                                    
                                 </ol>
                             </div>
                         </div>
                     </div>
                     <!-- /# column -->
                 </div>
-               
-                <!-- /# row -->
-                <section id="main-content">
+             <!-- /# row -->
+             <section id="main-content">
+             <section id="main-content">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="card">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Total Members</div>
-                                        <div class="stat-digit">
-                                            <?php
-                                                $nbr=mysqli_num_rows($resultat);
-                                                echo $nbr;
-                                            ?>
-                                        </div>
-                                    </div>
+                               
                                    
-                                    <button type="button" class="btn btn-info"><a href="..\themes\ajouter.php">Ajouter</a></button>
+                                    <button type="button" class="btn btn-danger"><a href="..\themes\add-activity.php">add activity</a></button>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +147,7 @@ $resultat =$con->query($reqselect);
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title pr">
-                                    <h4>Members</h4>
+                                    <h4>Activities</h4>
                                 </div>
                                 
 
@@ -186,14 +156,13 @@ $resultat =$con->query($reqselect);
                                         <table class="table student-data-table m-t-20">
                                             <thead>
                                                 <tr>
-                                                    <th>First Name</th>
-                                                    <th>Last Name </th>
                                                     <th>Email</th>
-                                                    <th>Facebook URL</th>
-                                                    <th>Skills</th>
-                                                    <th>Class</th>
-                                                    <th>Expectations</th>
+                                                    <th>activities </th>
+                                                    <th>presence</th>
+                                                    <th>score</th>
                                                     <th>supprimer</th>
+                                                    
+                                                    
 
                                                 </tr>
                                                
@@ -206,32 +175,23 @@ $resultat =$con->query($reqselect);
                                                         ?>
                                                         <tr>
                                                             <td>
-                                                                <?php echo $ligne['firstname'] ?>
+                                                                <?php echo $ligne['email'] ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $ligne['lastname'] ?>
+                                                                <?php echo $ligne['activities'] ?>
                                                             </td>
                                                             <td>
-                                                            <?php echo $ligne['Email'] ?>
+                                                            <?php echo $ligne['presence'] ?>
 
                                                             </td>
                                                             <td>
-                                                            <?php echo $ligne['Facebook'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $ligne['skills'] ?>
+                                                            <?php echo $ligne['score'] ?>
 
                                                             </td>
-                                                            <td>
-                                                            <?php echo $ligne['class'] ?>
+                                                            <td><a href="..\themes\supprimer1.php?supmem=<?php echo $ligne['email']; ?>"><button type="button" class="btn btn-danger">supprimer</button></a></td>
 
-
-                                                            </td>
-                                                            <td>
-                                                            <?php echo $ligne['expectations'] ?>
-
-                                                            </td>
-                                                            <td><a href="..\themes\supprimer.php?supmem=<?php echo $ligne['firstname']; ?>"><button type="button" class="btn btn-danger">supprimer</button></a></td>
+                                                           
+                                                            
 
                                                         </tr>
 
